@@ -1,0 +1,8 @@
+001;Manzanas;10;0.5
+002;Plátanos;5;0.75
+003;Manzanas;15;0.5
+004;Peras;20;1.0
+005;Plátanos;10;0.75
+006;Manzanas;5;0.5
+007;Peras;5;1.0
+008;Naranjas;10;1.25

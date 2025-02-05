@@ -1,0 +1,5 @@
+Producto con mayor ingreso: Peras (25.0€)
+Plátanos: 11.25
+Peras: 25.0
+Naranjas: 12.5
+Manzanas: 15.0

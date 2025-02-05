@@ -1,0 +1,8 @@
+Dune;Frank Herbert;CienciaFicción;1965
+1984;George Orwell;CienciaFicción;1949
+El señor de los anillos;J.R.R. Tolkien;Fantasía;1954
+Juego de tronos;George R.R. Martin;Fantasía;1996
+Sapiens;Yuval Noah Harari;Historia;2011
+El origen de las especies;Charles Darwin;Historia;1859
+La máquina del tiempo;H.G. Wells;CienciaFicción;1895
+El nombre del viento;Patrick Rothfuss;Fantasía;2007

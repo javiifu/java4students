@@ -1,0 +1,2 @@
+192.168.1.1 - 3 accesos
+Código de respuesta más frecuente: 200 (6 veces)

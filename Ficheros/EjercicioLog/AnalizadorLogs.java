@@ -132,7 +132,7 @@ public class AnalizadorLogs {
         // Se escribe:
         // 1. La IP con más accesos y el número total de accesos.
         // 2. El código de respuesta más frecuente y cuántas veces se repite.
-        String outputFile = "resumen_logs.txt";
+        String outputFile = "Ficheros/EjercicioLog/resumen_logs.txt";
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(outputFile))) {
 

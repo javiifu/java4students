@@ -4,6 +4,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int opcion;
+
+        Restaurante restaurante = new Restaurante();
+
         do {
             System.out.println("\nMenú de Gestión de Restaurante");
             System.out.println("1. Registrar Mesa");
@@ -20,7 +23,7 @@ public class App {
 
             switch (opcion) {
                 case 1 -> {
-                    //registrarMesa();
+                    restaurante.registrarMesa();
                 }
                 case 2 -> {
                     //registrarPlato();

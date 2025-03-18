@@ -12,6 +12,7 @@ public class Plato {
 
     }
 
-    public double getPrecio() {return this.precio;}
+    public Double getPrecio() {return this.precio;}
+    public String getCodigo() {return this.codigo;}
 
 }

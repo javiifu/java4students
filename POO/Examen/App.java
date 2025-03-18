@@ -22,15 +22,9 @@ public class App {
             opcion = scanner.nextInt();
 
             switch (opcion) {
-                case 1 -> {
-                    restaurante.registrarMesa();
-                }
-                case 2 -> {
-                    restaurante.registrarPlato();
-                }
-                case 3 -> {
-                    //registrarPedido();
-                }
+                case 1 -> restaurante.registrarMesa();
+                case 2 -> restaurante.registrarPlato();
+                case 3 -> restaurante.registrarPedido();
                 case 4 -> {
                     //modificarPedido();
                 }

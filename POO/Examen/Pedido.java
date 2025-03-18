@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-
 public class Pedido {
 
     Mesa mesaAsociada;
@@ -30,6 +29,7 @@ public class Pedido {
         return precioTotal;
     }
 
+    
 }
 
 

@@ -7,8 +7,9 @@ public class Restaurante {
 
     // Atributos Restaurante
     LinkedList<Mesa> mesas = new LinkedList<>();  
-    LinkedList<Plato> platos = new LinkedList<>();  
-
+    LinkedList<Plato> platos = new LinkedList<>();
+    LinkedList<Pedido> pedidos = new LinkedList<>();
+    
     public void registrarMesa() {
         int numeroMesa;
         int capacidad;
@@ -37,11 +38,11 @@ public class Restaurante {
 
         System.out.println("Ingresa un código del plato: ");
         codigoPlato = sc.nextLine();
-        sc.nextLine();
+        sc.next();
 
         System.out.println("Ingresa un nombre del plato: ");
         nombrePlato = sc.nextLine();
-        sc.nextLine();
+        sc.next();
 
         do { 
             System.out.println("Ingresa un precio del plato: ");
@@ -54,4 +55,47 @@ public class Restaurante {
         System.out.println("Plato creado correctamente!");
     }
 
+    public void registrarPedido() {
+        Mesa mesaEncontrada = null;
+        int numeroMesa;
+        do { 
+            System.out.println("Introduce el número de una mesa existente: ");
+            numeroMesa = sc.nextInt();
+            for (Mesa mesa : this.mesas) {
+                if (numeroMesa == mesa.getNumero()) {
+                    mesaEncontrada = mesa;
+                    break;
+                }
+            }
+            if (mesaEncontrada == null) {
+                System.out.println("No se ha encontrado esa mesa");
+            }
+        } while (mesaEncontrada == null);
+
+        LinkedList<Plato> listaPlatosPedidos = new LinkedList<Plato>();
+        String codigo;
+        boolean terminar = false;
+
+        while(!terminar) {
+            System.out.println("Introduce el código de los platos: ");
+            System.out.println("Si se introduce un 0, parará de preguntar: ");
+            codigo = sc.next();
+
+            //Futuro fix, no sale
+            if(codigo.equals('0')) {
+                terminar = true;
+            } else {
+                for (Plato plato : this.platos) {
+                    if (codigo.equals(plato.getCodigo())) {
+                        listaPlatosPedidos.add(plato);
+                        break;
+                    }
+                }
+            }
+        }
+        
+        Pedido pedido = new Pedido(mesaEncontrada, listaPlatosPedidos);
+        pedidos.add(pedido);
+        System.out.println("Pedido añadido correctamente");
+    }
 }

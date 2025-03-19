@@ -81,7 +81,12 @@ public class Restaurante {
             System.out.println("Si se introduce un 0, parará de preguntar: ");
             codigo = sc.next();
 
+<<<<<<< HEAD
             if(codigo.equals("0")) {
+=======
+            //Futuro fix, no sale
+            if(codigo.equals('0')) {
+>>>>>>> cdfe2d3eadcec4900886374198814c914229054a
                 terminar = true;
             } else {
                 for (Plato plato : this.platos) {

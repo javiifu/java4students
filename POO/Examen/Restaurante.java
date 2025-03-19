@@ -81,12 +81,7 @@ public class Restaurante {
             System.out.println("Si se introduce un 0, parará de preguntar: ");
             codigo = sc.next();
 
-<<<<<<< HEAD
             if(codigo.equals("0")) {
-=======
-            //Futuro fix, no sale
-            if(codigo.equals('0')) {
->>>>>>> cdfe2d3eadcec4900886374198814c914229054a
                 terminar = true;
             } else {
                 for (Plato plato : this.platos) {
@@ -102,4 +97,52 @@ public class Restaurante {
         pedidos.add(pedido);
         System.out.println("Pedido añadido correctamente");
     }
+
+    private Pedido getPedidoNumeroMesa() {
+        if (!this.pedidos.isEmpty()) {
+            do {
+                System.out.println("Introduce un número de mesa asociado al pedido: ");
+                int numero = sc.nextInt();
+                for (Pedido pedido : this.pedidos) {
+                    if (numero == pedido.getNumeroMesa()) {
+                        return pedido;
+                    }
+                }
+                System.out.println("Introduce un número válido");
+            } while (true);
+
+        }
+        return null;
+    }
+
+    public void menuModificarPedido() {
+        Pedido pedido = this.getPedidoNumeroMesa();
+        int opcion;
+        do {        
+            System.out.println("Que quieres hacer?:");
+            System.out.println("1. Cambiar estado (Completado/No Completado).");
+            System.out.println("2. Añadir Plato.");
+            System.out.println("3. Borrar Plato.");
+            System.out.println("4. Cambiar Mesa");
+            System.out.println("5. Aplicar Descuento.");
+            System.out.println("6. Borrar Pedido.");
+            System.out.println("7. Salir");
+            System.out.println("Introduce una opción: ");
+            opcion = sc.nextInt();
+        } while (opcion != 7);
+
+        switch (opcion) {
+            case 1 -> {pedido.cambiarCompletado();}
+            case 2 -> {
+                
+                Plato plato = new Plato();
+                pedido.addPlato(plato);
+            }
+        }
+    }
+
+    public void modificarPedido(Pedido pedido) {
+        
+    }
+
 }

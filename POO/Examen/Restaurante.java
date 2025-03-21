@@ -7,7 +7,7 @@ public class Restaurante {
 
     // Atributos Restaurante
     LinkedList<Mesa> mesas = new LinkedList<>();  
-    LinkedList<Plato> platos = new LinkedList<>();
+    LinkedList<Plato> cartaPlatos = new LinkedList<>();
     LinkedList<Pedido> pedidos = new LinkedList<>();
     
     public void registrarMesa() {
@@ -31,7 +31,7 @@ public class Restaurante {
         
     }
 
-    public void registrarPlato() {
+    private Plato crearPlato() {
         String codigoPlato; // P-01
         String nombrePlato;
         double precioPlato;
@@ -50,7 +50,14 @@ public class Restaurante {
         } while (precioPlato <= 0);
 
         Plato plato = new Plato(codigoPlato, nombrePlato, precioPlato);
-        platos.add(plato);
+        return plato;
+    }
+
+    public void registrarPlatoCarta() {
+        
+        Plato plato = this.crearPlato();
+
+        this.cartaPlatos.add(plato);
 
         System.out.println("Plato creado correctamente!");
     }
@@ -84,7 +91,7 @@ public class Restaurante {
             if(codigo.equals("0")) {
                 terminar = true;
             } else {
-                for (Plato plato : this.platos) {
+                for (Plato plato : this.cartaPlatos) {
                     if (codigo.equals(plato.getCodigo())) {
                         listaPlatosPedidos.add(plato);
                         break;
@@ -115,6 +122,40 @@ public class Restaurante {
         return null;
     }
 
+    private Plato platoByCodigo() {
+        String codigo;
+        if (!this.cartaPlatos.isEmpty()) {
+            do{
+                System.out.println("Introduce un código de un plato de la carta: ");
+                codigo = sc.nextLine();sc.next();
+                for (Plato plato : this.cartaPlatos) {
+                    if(plato.getCodigo().equals(codigo)) {
+                        return plato;
+                    }
+                }
+                System.out.println("No se ha encontrado el plato.");
+            } while(true);
+        }
+        return null;
+    }
+
+    private Mesa mesaByNumber() {
+        int numero;
+        if (!this.mesas.isEmpty()) {
+            do { 
+                System.out.println("Introduce el número de la nueva mesa: ");
+                numero = sc.nextInt();
+                for (Mesa mesa : this.mesas) {
+                    if (mesa.getNumero() == numero) {
+                        return mesa;
+                    }
+                }
+                System.out.println("No se ha encontrado la mesa");
+            } while (true);
+        }
+        return null;
+    }
+
     public void menuModificarPedido() {
         Pedido pedido = this.getPedidoNumeroMesa();
         int opcion;
@@ -132,14 +173,36 @@ public class Restaurante {
         } while (opcion != 7);
 
         switch (opcion) {
-            case 1 -> {pedido.cambiarCompletado();}
+            case 1 -> pedido.cambiarCompletado();
             case 2 -> {
-                
-                Plato plato = new Plato();
-                pedido.addPlato(plato);
+                System.out.println("1. Nuevo Plato");
+                System.out.println("2. Añadir Plato desde Carta");
+                int subopcion = sc.nextInt();
+                switch(subopcion) {
+                    case 1 -> pedido.addPlato(this.crearPlato()); 
+                    case 2 -> pedido.addPlato(this.platoByCodigo()); 
+                }
             }
+            case 3 -> {
+                String codigo; Boolean control;
+                do {
+                    System.out.println("Introduce un código de un plato: ");
+                    codigo = sc.nextLine();sc.next();
+                    control = pedido.removePlato(codigo);
+                    if (control) {
+                        System.out.println("Se ha borrado el plato.");
+                    } else {
+                        System.out.println("No se ha borrado el plato.");
+                    }
+                } while (!control);
+            }
+            case 4 -> pedido.setMesa(this.mesaByNumber());
         }
     }
+
+
+
+
 
     public void modificarPedido(Pedido pedido) {
         

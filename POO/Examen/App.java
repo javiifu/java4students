@@ -23,9 +23,9 @@ public class App {
 
             switch (opcion) {
                 case 1 -> restaurante.registrarMesa();
-                case 2 -> restaurante.registrarPlato();
+                case 2 -> restaurante.registrarPlatoCarta();
                 case 3 -> restaurante.registrarPedido();
-                case 4 -> {restaurante.menuModificarPedido();}
+                case 4 -> restaurante.menuModificarPedido();
                 case 5 -> {
                     //borrarPedido();
                 }

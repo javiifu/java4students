@@ -197,15 +197,14 @@ public class Restaurante {
                 } while (!control);
             }
             case 4 -> pedido.setMesa(this.mesaByNumber());
+            case 5 -> pedido.aplicarDescuento(10);
+            case 6 -> {
+                this.pedidos.remove(pedido);
+                System.out.println("Pedido borrado correctamente");
+            }
         }
     }
 
-
-
-
-
-    public void modificarPedido(Pedido pedido) {
-        
-    }
+    
 
 }

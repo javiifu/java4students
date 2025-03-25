@@ -42,5 +42,6 @@ public class App implements Serializable{
             }
             
         } while (opcion != 8);
+        scanner.close();
     }
 }

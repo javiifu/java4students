@@ -27,16 +27,15 @@ public class App implements Serializable{
                 case 3 -> restaurante.registrarPedido();
                 case 4 -> restaurante.menuModificarPedido();
                 case 5 -> {
-                    //modificarBorrarPlato();
+                    restaurante.modificarBorrarPlato();
                 }
                 case 6 -> {
-                    //guardarDatos();
+                    restaurante.guardarDatos();
                 }
                 case 7 -> {
-                    //cargarDatos();
+                    restaurante.cargarDatos();
                 }
                 case 8 -> {
-                    //guardarDatos();
                     System.out.println("Saliendo del programa...");
                 }
                 default -> System.out.println("Opción no válida, intente nuevamente.");

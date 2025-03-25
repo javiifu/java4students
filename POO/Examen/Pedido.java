@@ -1,5 +1,6 @@
 import java.util.LinkedList;
-public class Pedido {
+import java.io.Serializable;
+public class Pedido implements Serializable{
 
     Mesa mesaAsociada;
     LinkedList<Plato> listaPlatos;

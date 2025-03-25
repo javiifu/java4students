@@ -1,4 +1,5 @@
-public class Mesa {
+import java.io.Serializable;
+public class Mesa implements Serializable{
     
     private int numero;
     private int capacidad;

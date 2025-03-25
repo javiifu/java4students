@@ -1,7 +1,8 @@
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class Restaurante {
+public class Restaurante implements Serializable{
     // Atributos especiales
     Scanner sc = new Scanner(System.in);
 

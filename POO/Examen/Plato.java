@@ -1,6 +1,7 @@
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class Plato {
+public class Plato implements Serializable{
 
     Scanner sc = new Scanner(System.in);
     private String codigo;

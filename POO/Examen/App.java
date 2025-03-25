@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class App {
+public class App implements Serializable{
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int opcion;
